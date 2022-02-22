@@ -5,4 +5,8 @@ describe DockingStation do
         expect(subject).to respond_to('release_bike')
     end
 
+    it "gets a bike and expects it to work" do
+        bike = subject.release_bike
+        expect(bike).to be_working
+    end
 end
