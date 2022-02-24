@@ -36,4 +36,16 @@ describe DockingStation do
         end
     end
 
+    describe "set capacity" do
+        it "sets a default capacity of 20" do
+            expect(subject.DEFAULT_CAPACITY).to eq (20)
+        end
+
+        it "sets a default capacity of 20" do
+            station = DockingStation.new(25)
+            expect(station.DEFAULT_CAPACITY).to eq (25)
+        end
+    end
+
+
 end
