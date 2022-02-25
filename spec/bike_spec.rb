@@ -11,4 +11,10 @@ describe Bike do
     expect { Bike.new("not_good") }.to raise_error 'incorrect condition'
   end
 
+  # it "should not allow to set a wrong condition" do
+  #   bike = Bike.new("good")
+  #   expect(bike.working?).to eq true
+  #   expect { bike.condition = "lol" }.to raise_error 'incorrect condition'
+  # end
+
 end
