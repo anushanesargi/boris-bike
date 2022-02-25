@@ -13,7 +13,7 @@ class DockingStation
   def release_bike
     empty?
     @bikes.each do |b|
-      next if b.condition == "broken"
+      next if b.working? == false
         @bikes = @bikes - [b]
         return b
         break
@@ -21,21 +21,12 @@ class DockingStation
     
   end
 
-  def dock(bike, bike_condition = "good")
+  def dock(bike)
     full?
-    if bike_condition == "broken"
-      bike.condition = "broken"
-    end
     @bikes << bike
   end
 
   private
-
-  # def broken(bike)
-  #   if bike.condition == "broken"
-  #     return "broken"
-  #   end
-  # end
 
   def empty?
     fail 'No bikes available' unless @bikes.length > 0

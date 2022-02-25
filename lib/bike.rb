@@ -1,11 +1,15 @@
 class Bike
-  attr_accessor :condition
 
-    def initialize
-        @condition = "good"
+  attr_reader :condition
+  attr_writer :condition
+
+    def initialize(condition)
+        fail 'incorrect condition' if (condition != "good" && condition != "broken")
+        @condition = condition
     end
 
     def working?
-        true
+        return @condition == "good"
     end
+
 end
