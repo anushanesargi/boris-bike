@@ -18,7 +18,7 @@ class DockingStation
         return b
         break
       end
-    end
+    
   end
 
   def dock(bike, bike_condition = "good")
