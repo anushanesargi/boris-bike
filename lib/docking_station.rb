@@ -1,23 +1,29 @@
 require_relative 'bike'
+require_relative 'garage'
 
 class DockingStation
   
   attr_reader :bikes, :DEFAULT_CAPACITY
   
   
-  def initialize(capacity = 20)
+  def initialize(capacity = 20, garage = Garage.new)
     @DEFAULT_CAPACITY = capacity
     @bikes = []
+    @garage = garage
   end
 
   def release_bike
     empty?
+    
     @bikes.each do |b|
-      next if b.working? == false
-        @bikes = @bikes - [b]
-        return b
-        break
+      if b.working? == false
+        @garage.to_repair(b)
+        next
       end
+      @bikes = @bikes - [b]
+      return b
+      break
+    end
     
   end
 
