@@ -16,9 +16,13 @@ class Garage
         @broken_bikes
     end
 
-    def repair(bike)
-        @broken_bikes -= [bike]
+    def repair
+        @broken_bikes -= [@broken_bikes.last]
         in_garage
+    end
+
+    def call_van(van)
+        van.picked_up_bikes(bike)
     end
 
 end

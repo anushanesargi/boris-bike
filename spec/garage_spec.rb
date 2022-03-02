@@ -27,7 +27,7 @@ describe Garage do
         station = DockingStation.new(capacity = 20, garage = garage)
         station.dock(bike)
         station.release_bike
-        garage.repair(bike)
+        garage.repair
         expect(garage.in_garage).to eq []
     end
 
