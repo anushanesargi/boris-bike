@@ -16,4 +16,9 @@ class Garage
         @broken_bikes
     end
 
+    def repair(bike)
+        @broken_bikes -= [bike]
+        in_garage
+    end
+
 end

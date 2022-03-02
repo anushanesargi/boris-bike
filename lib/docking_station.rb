@@ -14,7 +14,6 @@ class DockingStation
 
   def release_bike
     empty?
-    
     @bikes.each do |b|
       if b.working? == false
         @garage.to_repair(b)
